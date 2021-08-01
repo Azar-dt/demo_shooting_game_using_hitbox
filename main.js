@@ -39,14 +39,6 @@ const mouse = {
     x : undefined,
     y : undefined
 }
-bg_sound.volume = 0.05; 
-bg_sound.play(); 
-
-bg_sound.addEventListener('ended', function() {
-    this.currentTime = 0;
-    this.volume = 0.05
-    this.play();
-}, false);
 
 canvas.addEventListener("mousemove", function(e) { 
     var cRect = canvas.getBoundingClientRect();              // Gets the CSS positions along with width/height
@@ -55,8 +47,13 @@ canvas.addEventListener("mousemove", function(e) {
  
     mouse.x = canvasX; 
     mouse.y = canvasY;
-
 });
+
+bg_sound.addEventListener('ended', function() {
+    this.currentTime = 0;
+    this.volume = 0.05
+    this.play();
+}, false);
 
 window.addEventListener('click', function(e) { 
     shoot_sound.currentTime = 0; 
@@ -126,6 +123,12 @@ function animate(timestamp) {
     collisionCtx.clearRect(0,0,canvas.width,canvas.height); 
     ctx.drawImage(bg_img, 0, 0, canvas.width, canvas.height); 
     showStats(); 
+    // bg_sound.muted = true; 
+    bg_sound.volume = 0.05; 
+    bg_sound.play(); 
+    // bg_sound.muted = false;
+    // bg_sound.volume = 0.05; 
+    // bg_sound.play(); 
     // if (SCORE > 0 && SCORE % 100 === 0) LEVEL ++; 
     let deltaTime = timestamp - lastTime; 
     lastTime = timestamp; 
@@ -149,3 +152,4 @@ function animate(timestamp) {
 }
 
 animate(0); 
+
