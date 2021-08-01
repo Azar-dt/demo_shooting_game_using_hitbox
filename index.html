@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shooting</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        canvas { 
+            position: absolute;
+            top: 0; 
+            left: 0;
+            width: 100%;
+            height: 100%;
+            cursor: none;
+        }
+        #collisionCanvas { 
+            /* background: red; */
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="collisionCanvas"></canvas>
+    <canvas id="canvas1"></canvas>
+
+    <script src="Enemy.js"></script>
+    <script src="EnemyGetShooted.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
